@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "aTzoYpOsaV0aHFyyr/ehfV0Vsg37zbXVd7v6PqnHZ22KIdBb2TWLnBmnJ3XkxfZ75klphFPEwDGI8kcSwsXBBA==",
+  "success": true,
+  "projectFilePath": "/home/nachi/SelfApplications/C#/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj",
+  "expectedPackageFiles": [
+    "/home/nachi/.nuget/packages/spectre.console/0.54.0/spectre.console.0.54.0.nupkg.sha512",
+    "/home/nachi/.nuget/packages/spectre.console.cli/0.53.1/spectre.console.cli.0.53.1.nupkg.sha512"
+  ],
+  "logs": []
+}
