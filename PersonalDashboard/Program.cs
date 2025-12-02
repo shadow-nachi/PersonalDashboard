@@ -4,8 +4,6 @@ using Hardware.Info;
 var layout = CreateLayout();
 RenderDashboard(layout, CreateMainPanel(), CreateCalendarPanel(), CreateCavaPanel());
 
-DisplaySystemInfo();
-
 static Layout CreateLayout()
 {
     return new Layout()
@@ -34,9 +32,9 @@ static Panel CreateMainPanel()
     string userName = Environment.UserName;
     string welcomeMessage = $"Welcome back, {userName}!";
     
-    return new Panel("[bold Green]" + welcomeMessage + "[/]")
+    return new Panel(ReturnSystemInfo())
         .Border(BoxBorder.Rounded)
-        .Header("[bold yellow]Personal Dashboard[/]")
+        .Header("[bold yellow]"+ welcomeMessage +"[/]")
         .Expand();
 }
 
@@ -56,12 +54,12 @@ static Panel CreateCavaPanel()
         .Expand();
 }
 
-static void DisplaySystemInfo()
+static Tree ReturnSystemInfo()
 {
     var hardwareInfo = GetHardwareInfo();
     var osInfo = BuildSystemInfoTree(hardwareInfo);
     
-    AnsiConsole.Write(osInfo);
+    return osInfo;
 }
 
 static HardwareInfo GetHardwareInfo()
@@ -72,7 +70,7 @@ static HardwareInfo GetHardwareInfo()
 }
 
 static Tree BuildSystemInfoTree(HardwareInfo hardwareInfo)
-{
+{   
     string machineName = Environment.MachineName;
     var osInfo = new Tree(machineName);
     var software = osInfo.AddNode("Software");
@@ -82,6 +80,20 @@ static Tree BuildSystemInfoTree(HardwareInfo hardwareInfo)
     software.AddNode("Kernel Version: " + Environment.Version.ToString());
     software.AddNode("Uptime: " + GetSystemUptime().ToString(@"dd\.hh\:mm\:ss"));
     software.AddNode("Shell: " + (Environment.GetEnvironmentVariable("SHELL") ?? "N/A"));
+
+    var hardware = osInfo.AddNode("Hardware");
+    hardware.AddNode("Cpu: " + hardwareInfo.CpuList[0].Name);
+    hardware.AddNode("Ram: " + (hardwareInfo.MemoryStatus.TotalPhysical / (1024 * 1024 * 1024)) + " GB");
+    hardware.AddNode("Gpu: " + Markup.Escape(hardwareInfo.VideoControllerList[0].Name));
+    hardwareInfo.RefreshDriveList();
+    foreach (var drive in hardwareInfo.DriveList)
+    {
+        var Drive = hardware.AddNode("Drive: " + drive.Name + " (" + (drive.Size / (1024 * 1024 * 1024)) + " GB)");
+        foreach (var partition in drive.PartitionList)
+        {
+            Drive.AddNode("Partition: " + partition.Name + " (" + (partition.Size / (1024 * 1024 * 1024)) + " GB)");
+        }
+    }
     
     return osInfo;
 }
