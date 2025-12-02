@@ -38,6 +38,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Hardware.Info": {
+              "target": "Package",
+              "version": "[101.1.0.1, )"
+            },
             "Spectre.Console": {
               "target": "Package",
               "version": "[0.54.0, )"
