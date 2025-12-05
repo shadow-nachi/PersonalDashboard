@@ -1,9 +1,34 @@
 ﻿using Spectre.Console;
 using Hardware.Info;
 using System.Runtime.InteropServices;
+using Cava;
+using System.Diagnostics;
 
-var layout = CreateLayout();
-RenderDashboard(layout, CreateMainPanel(), CreateCalendarPanel(), CreateCavaPanel());
+static void Programm()
+{
+    var layout = CreateLayout();
+
+    // Create static panels
+    var mainPanel = CreateMainPanel();
+    var calendarPanel = CreateCalendarPanel();
+
+    // Create Cava reader and panel
+    var reader = new CavaReader();
+    var cavaPanel = new CavaPanel(reader);
+    Task.Run(() => reader.Start());
+
+    // Live dashboard loop
+    AnsiConsole.Live(layout).Start(ctx =>
+    {
+        while (true)
+        {
+            RenderDashboard(layout, mainPanel, calendarPanel, cavaPanel.GetPanel());
+            ctx.Refresh();
+            Thread.Sleep(33); // ~30 FPS
+        }
+    });
+}
+Programm();
 
 static Layout CreateLayout()
 {
@@ -17,16 +42,16 @@ static Layout CreateLayout()
                 )
         );
 }
-
 static void RenderDashboard(Layout layout, Panel mainPanel, Panel calendarPanel, Panel cavaPanel)
 {
     layout["left"].Update(mainPanel);
     layout["right"]["top-right"].Update(calendarPanel);
     layout["right"]["bottom-right"].Update(cavaPanel);
-    
+
     AnsiConsole.Clear();
     AnsiConsole.Write(layout);
 }
+
 
 static Panel CreateMainPanel()
 {
@@ -44,14 +69,6 @@ static Panel CreateCalendarPanel()
     return new Panel("[bold blue]Calendar Placeholder[/]")
         .Border(BoxBorder.Rounded)
         .Header("[bold yellow]Calendar[/]")
-        .Expand();
-}
-
-static Panel CreateCavaPanel()
-{
-    return new Panel("[bold blue]Cava Placeholder[/]")
-        .Border(BoxBorder.Rounded)
-        .Header("[bold yellow]Cava Visualization[/]")
         .Expand();
 }
 
