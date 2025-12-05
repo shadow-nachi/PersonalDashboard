@@ -1,5 +1,6 @@
 ﻿using Spectre.Console;
 using Hardware.Info;
+using System.Runtime.InteropServices;
 
 var layout = CreateLayout();
 RenderDashboard(layout, CreateMainPanel(), CreateCalendarPanel(), CreateCavaPanel());
@@ -69,6 +70,33 @@ static HardwareInfo GetHardwareInfo()
     return hardwareInfo;
 }
 
+static string DetectDisplay()
+{
+    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        return "Windows";
+
+    if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+        return "macOS";
+
+    var sessionType = Environment.GetEnvironmentVariable("XDG_SESSION_TYPE")?.ToLowerInvariant();
+
+    switch (sessionType)
+    {
+        case "wayland":
+            return "Wayland";
+        case "x11":
+            return "X11";
+    }
+
+    if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("WAYLAND_DISPLAY")))
+        return "Wayland";
+
+    if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("DISPLAY")))
+        return "X11";
+
+    return "Unknown";
+}
+
 static Tree BuildSystemInfoTree(HardwareInfo hardwareInfo)
 {   
     string machineName = Environment.MachineName;
@@ -77,23 +105,15 @@ static Tree BuildSystemInfoTree(HardwareInfo hardwareInfo)
     
     var os = hardwareInfo.OperatingSystem;
     software.AddNode("OS: " + os.Name);
-    software.AddNode("Kernel Version: " + Environment.Version.ToString());
+    software.AddNode("Kernel Version: " + File.ReadAllText("/proc/version").Trim());
     software.AddNode("Uptime: " + GetSystemUptime().ToString(@"dd\.hh\:mm\:ss"));
     software.AddNode("Shell: " + (Environment.GetEnvironmentVariable("SHELL") ?? "N/A"));
+    software.AddNode("Display Server: " + DetectDisplay());
 
     var hardware = osInfo.AddNode("Hardware");
     hardware.AddNode("Cpu: " + hardwareInfo.CpuList[0].Name);
     hardware.AddNode("Ram: " + (hardwareInfo.MemoryStatus.TotalPhysical / (1024 * 1024 * 1024)) + " GB");
     hardware.AddNode("Gpu: " + Markup.Escape(hardwareInfo.VideoControllerList[0].Name));
-    hardwareInfo.RefreshDriveList();
-    foreach (var drive in hardwareInfo.DriveList)
-    {
-        var Drive = hardware.AddNode("Drive: " + drive.Name + " (" + (drive.Size / (1024 * 1024 * 1024)) + " GB)");
-        foreach (var partition in drive.PartitionList)
-        {
-            Drive.AddNode("Partition: " + partition.Name + " (" + (partition.Size / (1024 * 1024 * 1024)) + " GB)");
-        }
-    }
     
     return osInfo;
 }
