@@ -238,6 +238,8 @@ static Tree BuildSystemInfoTree(HardwareInfo hardwareInfo)
     return osInfo;
 }
 
+//  [ Utility Functions ]
+
 static TimeSpan GetSystemUptime()
 {
     return TimeSpan.FromMilliseconds(Environment.TickCount64);
