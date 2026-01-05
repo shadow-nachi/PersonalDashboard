@@ -1,25 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "/home/nachi/SelfApplications/C#/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj": {}
+    "/home/shadow_nachi/Work/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj": {}
   },
   "projects": {
-    "/home/nachi/SelfApplications/C#/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj": {
+    "/home/shadow_nachi/Work/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/nachi/SelfApplications/C#/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj",
+        "projectUniqueName": "/home/shadow_nachi/Work/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj",
         "projectName": "PersonalDashboard",
-        "projectPath": "/home/nachi/SelfApplications/C#/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj",
-        "packagesPath": "/home/nachi/.nuget/packages/",
-        "outputPath": "/home/nachi/SelfApplications/C#/PersonalDashboard/PersonalDashboard/obj/",
+        "projectPath": "/home/shadow_nachi/Work/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj",
+        "packagesPath": "/home/shadow_nachi/.nuget/packages/",
+        "outputPath": "/home/shadow_nachi/Work/PersonalDashboard/PersonalDashboard/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/nachi/.nuget/NuGet/NuGet.Config"
+          "/home/shadow_nachi/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,7 +33,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -62,12 +69,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[8.0.22, 8.0.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.122/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.112/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

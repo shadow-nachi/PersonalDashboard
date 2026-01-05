@@ -1,22 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "wQuzzDL7amRwa82nmSJb8Wx6YhEpJvJBsstWh6VojChTr0Rw1zFX9zpbzFulV39RhYKSYAPwgD8ObR2Ib7sJYA==",
+  "dgSpecHash": "Vi8dtriT5cg=",
   "success": true,
-  "projectFilePath": "/home/nachi/SelfApplications/C#/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj",
+  "projectFilePath": "/home/shadow_nachi/Work/PersonalDashboard/PersonalDashboard/PersonalDashboard.csproj",
   "expectedPackageFiles": [
-    "/home/nachi/.nuget/packages/hardware.info/101.1.0.1/hardware.info.101.1.0.1.nupkg.sha512",
-    "/home/nachi/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/spectre.console/0.54.0/spectre.console.0.54.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/spectre.console.cli/0.53.1/spectre.console.cli.0.53.1.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.codedom/8.0.0/system.codedom.8.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.configuration.configurationmanager/8.0.0/system.configuration.configurationmanager.8.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.diagnostics.eventlog/8.0.0/system.diagnostics.eventlog.8.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.diagnostics.performancecounter/8.0.0/system.diagnostics.performancecounter.8.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.management/8.0.0/system.management.8.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.security.cryptography.protecteddata/8.0.0/system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
-    "/home/nachi/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512"
+    "/home/shadow_nachi/.nuget/packages/hardware.info/101.1.0.1/hardware.info.101.1.0.1.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/spectre.console/0.54.0/spectre.console.0.54.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/spectre.console.cli/0.53.1/spectre.console.cli.0.53.1.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.codedom/8.0.0/system.codedom.8.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.configuration.configurationmanager/8.0.0/system.configuration.configurationmanager.8.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.diagnostics.eventlog/8.0.0/system.diagnostics.eventlog.8.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.diagnostics.performancecounter/8.0.0/system.diagnostics.performancecounter.8.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.management/8.0.0/system.management.8.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.security.cryptography.protecteddata/8.0.0/system.security.cryptography.protecteddata.8.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
+    "/home/shadow_nachi/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.22/microsoft.netcore.app.host.linux-x64.8.0.22.nupkg.sha512"
   ],
   "logs": []
 }
